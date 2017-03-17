@@ -1,0 +1,21 @@
+version: '3'
+services:
+
+  # NodeJS - Web Server
+  webserver:
+    build:
+      context: ./frontend/web-server
+    ports:
+      - "2000:2000"
+    volumes:
+      - ./frontend/web-server/src:/usr/src/app/src
+  
+  # NodeJS - Mock API 
+  mockapi:
+    build:
+      context: ./frontend/mock-api
+    ports:
+      - "2001:2001"
+    volumes:
+      - ./frontend/mock-api/src:/usr/src/app/src
+    
